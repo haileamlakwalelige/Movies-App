@@ -6,10 +6,13 @@ import styles from '../../theme';
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import TrendingMovies from "../components/TrendingMovies";
+import MovieList from "../components/MovieList";
 // import { styles } from "../../theme";
 
 const HomeScreen = () => {
   const [trending, setTrending]=useState([1,2,3,4]);
+  const [upcoming, setUpcoming]=useState([1,2,3,4]);
+  const [topRated, setTopRated]=useState([1,2,3,4]);
 
   return (
     <View className="flex w-screen bg-black min-h-screen">
@@ -29,6 +32,13 @@ const HomeScreen = () => {
       >
 {/* Trending Movies Carousel */}
 <TrendingMovies data={trending} />
+
+{/* Upcoming Movies row */}
+<MovieList title="Upcoming" data={upcoming}/>
+
+
+{/* Tod Rated Movies row */}
+<MovieList title="Top Rated" data={topRated}/>
       </ScrollView>
     </View>
   );
